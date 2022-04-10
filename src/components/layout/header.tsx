@@ -10,6 +10,10 @@ const Header = () => {
       justify="center"
       w="full"
       insetX={0}
+      bg="white"
+      p={4}
+      backdropFilter="blur(24px)"
+      borderBottom="#EDEDED 1px solid"
     >
       <Container
         alignItems="center"
@@ -17,7 +21,7 @@ const Header = () => {
         d="flex"
         maxW="container.md"
       >
-        <Heading>Hi</Heading>
+        <Heading size="md">Andrej</Heading>
       </Container>
     </HStack>
   );
