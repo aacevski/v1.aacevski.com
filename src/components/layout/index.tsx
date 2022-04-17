@@ -8,9 +8,7 @@ type Props = PropsWithChildren<{}>;
 const Layout = ({ children }: Props) => {
   return (
     <VStack
-      bgColor="white"
-      opacity="0.7"
-      bgImage=" radial-gradient(#E5E5F7 1.55px, #ffffff 1.55px)"
+      bgImage="radial-gradient(rgba(201, 201, 201, 0.7) 1.55px, rgba(229, 229, 247, 0.7) 1.55px)"
       bgSize="31px 31px"
     >
       <Header />
