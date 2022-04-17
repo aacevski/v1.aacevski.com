@@ -1,6 +1,16 @@
-import { Container, Heading, HStack } from '@chakra-ui/react';
+import {
+  Button,
+  Container,
+  Heading,
+  HStack,
+  useColorMode,
+  useColorModeValue as mode,
+} from '@chakra-ui/react';
+import ColorModeSwitch from '~components/color-mode-switch';
 
 const Header = () => {
+  const { toggleColorMode } = useColorMode();
+
   return (
     <HStack
       as="nav"
@@ -10,10 +20,9 @@ const Header = () => {
       justify="center"
       w="full"
       insetX={0}
-      bg="white"
+      bg={mode('white', '#1E1E1E')}
       p={4}
       backdropFilter="blur(24px)"
-      borderBottom="#EDEDED 1px solid"
     >
       <Container
         alignItems="center"
@@ -22,6 +31,7 @@ const Header = () => {
         maxW="container.md"
       >
         <Heading size="md">Andrej</Heading>
+        <ColorModeSwitch onClick={toggleColorMode} />
       </Container>
     </HStack>
   );
