@@ -1,7 +1,7 @@
 import {
-  Button,
+  Box,
   Container,
-  Heading,
+  Text,
   HStack,
   useColorMode,
   useColorModeValue as mode,
@@ -20,9 +20,9 @@ const Header = () => {
       justify="center"
       w="full"
       insetX={0}
-      bg={mode('white', '#1E1E1E')}
+      bg={mode('rgba(255, 255, 255, 0.2)', 'rgba(30, 30, 30, 0.8)')}
       p={4}
-      backdropFilter="blur(24px)"
+      backdropFilter="blur(10px)"
     >
       <Container
         alignItems="center"
@@ -30,10 +30,8 @@ const Header = () => {
         d="flex"
         maxW="container.md"
       >
-        <Heading fontWeight="500" fontSize="21px">
-          Andrej
-        </Heading>
-        <ColorModeSwitch onClick={toggleColorMode} />
+        <Text fontSize={20}>Andrej</Text>
+        <ColorModeSwitch size="sm" onClick={toggleColorMode} />
       </Container>
     </HStack>
   );

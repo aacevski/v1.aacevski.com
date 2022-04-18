@@ -2,8 +2,8 @@ import { extendTheme, theme as base } from '@chakra-ui/react';
 
 const theme = extendTheme({
   fonts: {
-    heading: `IBM Plex Mono, ${base.fonts.heading}`,
-    body: `IBM Plex Mono, ${base.fonts.body}`,
+    heading: `JetBrains Mono, ${base.fonts.heading}`,
+    body: `JetBrains Mono, ${base.fonts.body}`,
   },
 });
 

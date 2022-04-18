@@ -5,12 +5,6 @@ import Header from './header';
 
 type Props = PropsWithChildren<{}>;
 
-// background-color: #121212;
-// opacity: 1;
-// background-image:  radial-gradient(#2e2e32 1.3px, transparent 1.3px), radial-gradient(#2e2e32 1.3px, #121212 1.3px);
-// background-size: 52px 52px;
-// background-position: 0 0,26px 26px;
-
 const Layout = ({ children }: Props) => {
   return (
     <VStack
