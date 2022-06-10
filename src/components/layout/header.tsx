@@ -1,10 +1,9 @@
 import {
-  Box,
   Container,
-  Text,
   HStack,
   useColorMode,
   useColorModeValue as mode,
+  Heading,
 } from '@chakra-ui/react';
 import ColorModeSwitch from '~components/color-mode-switch';
 
@@ -30,7 +29,7 @@ const Header = () => {
         d="flex"
         maxW="container.md"
       >
-        <Text fontSize={20}>Andrej</Text>
+        <Heading size="sm">aacevski.com</Heading>
         <ColorModeSwitch size="sm" onClick={toggleColorMode} />
       </Container>
     </HStack>
