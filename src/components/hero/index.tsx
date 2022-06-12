@@ -9,6 +9,7 @@ import {
   VStack,
   Image,
   useColorModeValue as mode,
+  Stack,
 } from '@chakra-ui/react';
 
 import socialLinks from '~constants/social-icons';
@@ -58,7 +59,14 @@ const Hero = () => {
           . With a passion for video creation and knowledge sharing.
         </Text>
       </VStack>
-      <HStack w="full" spacing={4}>
+      <Stack
+        w="full"
+        spacing={4}
+        direction={{
+          base: 'column',
+          md: 'row',
+        }}
+      >
         {socialLinks.map((socialLink) => (
           <Button
             as={Link}
@@ -72,7 +80,7 @@ const Hero = () => {
             {socialLink.name}
           </Button>
         ))}
-      </HStack>
+      </Stack>
     </VStack>
   );
 };
