@@ -4,4 +4,5 @@ export type SocialLink = {
     icon: IconType;
     href: string;
     color?: string;
+    name: string;
 }

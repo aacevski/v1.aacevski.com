@@ -30,7 +30,7 @@ const Header = () => {
         d="flex"
         maxW="container.md"
       >
-        <Heading size="sm">aacevski.com</Heading>
+        <Heading size="sm">?</Heading>
         <ColorModeSwitch size="sm" onClick={toggleColorMode} />
       </Container>
     </HStack>

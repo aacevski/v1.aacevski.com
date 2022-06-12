@@ -25,6 +25,7 @@ const theme = extendTheme({
         ghost: (props: ButtonProps) => ({
           _hover: {
             backgroundColor: mode('blackAlpha.200', 'whiteAlpha.200')(props),
+            textDecoration: 'none'
           },
         })
       }

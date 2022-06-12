@@ -17,7 +17,7 @@ const Layout = ({ children }: Props) => {
       <Header />
       <Container
         d="flex"
-        maxW="container.md"
+        maxW="container.sm"
         minH={{ base: 'auto', md: '100vh' }}
         centerContent
       >

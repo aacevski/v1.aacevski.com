@@ -6,12 +6,7 @@ import Videos from '~components/videos';
 const Home = () => {
   return (
     <VStack w="full" spacing={10}>
-      <Box>
-        <Hero />
-      </Box>
-      <Box>
-        <Videos />
-      </Box>
+      <Hero />
     </VStack>
   );
 };
