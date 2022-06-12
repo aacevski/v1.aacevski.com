@@ -1,6 +1,6 @@
 import { BsGithub, BsTwitter, BsYoutube } from "react-icons/bs";
 
-import { SocialLink } from "types/social-links";
+import { SocialLink } from "~types/social-link";
 
 const socialLinks: SocialLink[] = [
     {

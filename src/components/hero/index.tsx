@@ -1,6 +1,5 @@
 import { Button, Heading, HStack, Icon, Link, Text } from '@chakra-ui/react';
 
-import { SocialLink } from '~types/social-links';
 import socialLinks from '~constants/social-icons';
 
 const Hero = () => {
@@ -16,7 +15,7 @@ const Hero = () => {
         knowledge.
       </Text>
       <HStack w="full" spacing={1}>
-        {socialLinks.map((socialLink: SocialLink) => (
+        {socialLinks.map((socialLink) => (
           <Button
             as={Link}
             key={socialLink.href}
