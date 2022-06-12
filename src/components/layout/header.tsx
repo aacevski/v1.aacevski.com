@@ -5,6 +5,7 @@ import {
   useColorModeValue as mode,
   Heading,
 } from '@chakra-ui/react';
+
 import ColorModeSwitch from '~components/color-mode-switch';
 
 const Header = () => {

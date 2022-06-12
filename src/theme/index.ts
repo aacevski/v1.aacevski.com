@@ -1,16 +1,35 @@
-import { extendTheme, theme as base } from '@chakra-ui/react';
+import { extendTheme, theme as base, ButtonProps } from '@chakra-ui/react';
+import { mode } from '@chakra-ui/theme-tools';
 
 const theme = extendTheme({
   colors: {
     brand: {
       primary: "#121212",
-      secondary: "#B1B1B1",
     },
+  },
+  semanticTokens: {
+    colors: {
+      paragraph: {
+        default: 'blackAlpha.600',
+        _dark: 'whiteAlpha.600',
+      },
+    }
   },
   fonts: {
     heading: `JetBrains Mono, ${base.fonts.heading}`,
     body: `JetBrains Mono, ${base.fonts.body}`,
   },
+  components: {
+    Button: {
+      variants: {
+        ghost: (props: ButtonProps) => ({
+          _hover: {
+            backgroundColor: mode('blackAlpha.200', 'whiteAlpha.200')(props),
+          },
+        })
+      }
+    }
+  }
 });
 
 export default theme;

@@ -8,7 +8,6 @@ type Props = PropsWithChildren<{}>;
 const Layout = ({ children }: Props) => {
   return (
     <VStack
-      // make background image fade
       bgImage={mode(
         'radial-gradient(rgba(201, 201, 201, 0.7) 1.55px, rgba(229, 229, 247, 0.7) 1.55px)',
         'radial-gradient(#2E2E32 1.33px, #121212 1.33px)'
