@@ -27,7 +27,7 @@ const Header = () => {
       <Container
         alignItems="center"
         justifyContent="space-between"
-        d="flex"
+        display="flex"
         maxW="container.md"
       >
         <Heading size="sm">?</Heading>

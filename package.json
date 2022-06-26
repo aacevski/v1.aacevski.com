@@ -13,13 +13,13 @@
     "*.{ts,tsx}": "eslint --fix"
   },
   "dependencies": {
-    "@chakra-ui/react": "^1.8.7",
-    "@emotion/react": "^11",
-    "@emotion/styled": "^11",
-    "framer-motion": "^6",
-    "next": "12.1.4",
-    "react": "18.0.0",
-    "react-dom": "18.0.0",
+    "@chakra-ui/react": "latest",
+    "@emotion/react": "latest",
+    "@emotion/styled": "latest",
+    "framer-motion": "latest",
+    "next": "latest",
+    "react": "latest",
+    "react-dom": "latest",
     "react-icons": "^4.4.0"
   },
   "devDependencies": {

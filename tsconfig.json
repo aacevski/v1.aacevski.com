@@ -20,10 +20,10 @@
       "~theme": ["theme"],
       "~icons/*": ["icons/*"],
       "~constants/*": ["constants/*"],
-      "~types/*": ["types/*"]
+      "~types/*": ["types/*"],
+      "~utils/*": ["utils/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"],
   "exclude": ["node_modules"]
 }
-

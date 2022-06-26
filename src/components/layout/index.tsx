@@ -1,5 +1,5 @@
 import { PropsWithChildren } from 'react';
-import { Container, VStack, useColorModeValue as mode } from '@chakra-ui/react';
+import { Box, VStack, useColorModeValue as mode } from '@chakra-ui/react';
 
 import Header from './header';
 
@@ -15,18 +15,17 @@ const Layout = ({ children }: Props) => {
       bgSize="31px 31px"
     >
       <Header />
-      <Container
-        d="flex"
-        maxW="container.sm"
+      <Box
+        display="flex"
+        w="full"
         minH={{ base: 'auto', md: '100vh' }}
-        centerContent
       >
         <VStack alignItems="stretch" flex={1} w="full" spacing={16}>
           <VStack as="main" flex={1} w="full" spacing={16} pt={10}>
             {children}
           </VStack>
         </VStack>
-      </Container>
+      </Box>
     </VStack>
   );
 };

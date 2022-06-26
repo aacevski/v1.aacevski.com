@@ -1,15 +1,45 @@
-import { Box, VStack } from '@chakra-ui/react';
+import { Container, Heading, Text, VStack } from '@chakra-ui/react';
+import { GetStaticProps } from 'next';
 
 import Hero from '~components/hero';
-import Videos from '~components/videos';
+import { Project } from '~types/project';
+import { readData } from '~utils/read-data';
 
-const Home = () => {
+type Props = {
+  projects: Project[];
+};
+
+const Home = ({ projects }: Props) => {
   return (
     <VStack w="full" spacing={10}>
-      <Hero />
-    </VStack>
+      <Container maxW="container.sm" centerContent>
+        <VStack spacing={10}>
+          <Hero />
+          <VStack w="full" align="flex-start">
+            <Heading size="lg">projects</Heading>
+            <Text color="paragraph" fontWeight="normal">
+              a collection of my work & pet projects that helped me learn new
+              things
+            </Text>
+          </VStack>
+        </VStack>
+      </Container>
+    </VStack >
   );
 };
 
-export default Home;
+export const getStaticProps: GetStaticProps<Props> = async () => {
+  const { projects } = await readData<{ projects: Project[] }>(
+    'data/projects.json'
+  );
 
+  const props: Props = {
+    projects,
+  };
+
+  return {
+    props,
+  };
+};
+
+export default Home;
