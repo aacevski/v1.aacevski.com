@@ -64,8 +64,9 @@ const Hero = () => {
         spacing={4}
         direction={{
           base: 'column',
-          md: 'row',
+          sm: 'row',
         }}
+        pb={10}
       >
         {socialLinks.map((socialLink) => (
           <Button
