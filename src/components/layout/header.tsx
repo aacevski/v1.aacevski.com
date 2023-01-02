@@ -1,15 +1,31 @@
 import {
-  Container,
-  HStack,
+  Container, Heading, HStack,
   useColorMode,
-  useColorModeValue as mode,
-  Heading,
+  useColorModeValue as mode
 } from '@chakra-ui/react';
+import dayjs from 'dayjs';
+import { useEffect, useMemo, useRef, useState } from 'react';
 
 import ColorModeSwitch from '~components/color-mode-switch';
 
 const Header = () => {
   const { toggleColorMode } = useColorMode();
+  const [age, setAge] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      const now = dayjs();
+      const birth = dayjs('1999-08-09');
+      const diff = now.diff(birth, 'year', true);
+
+      setAge(diff);
+
+    }, 100);
+
+    return () => clearInterval(interval);
+  }, []);
+
+
 
   return (
     <HStack
@@ -30,7 +46,22 @@ const Header = () => {
         display="flex"
         maxW="container.md"
       >
-        <Heading size="sm">?</Heading>
+        <Heading
+          cursor="help"
+          size="sm"
+          pos="relative"
+          _hover={{
+            _after: {
+              content: '"getAge()"',
+              position: 'absolute',
+              top: '100%',
+              left: 0,
+              bg: mode('white', 'black'),
+              p: 2,
+              borderRadius: 'md',
+              fontSize: 'xs',
+            }
+          }}>{age.toFixed(8)}</Heading>
         <ColorModeSwitch size="sm" onClick={toggleColorMode} />
       </Container>
     </HStack>

@@ -1,17 +1,8 @@
 import {
-  Button,
-  Heading,
-  HStack,
-  Icon,
-  Link,
-  Text,
-  chakra,
-  VStack,
-  Image,
-  useColorModeValue as mode,
-  Stack,
+  Button, chakra, Heading, Icon, Image, Link, Stack, Text, useColorModeValue as mode, VStack
 } from '@chakra-ui/react';
 
+import LinkPreview from '~components/link-preview';
 import socialLinks from '~constants/social-icons';
 
 const Hero = () => {
@@ -29,34 +20,61 @@ const Hero = () => {
         />
         <Heading alignSelf="start">Andrej Acevski</Heading>
         <Heading size="sm" alignSelf="start">
-          full stack web developer, open source advocate
+          software engineer, open source advocate, content creator
         </Heading>
         <Text color="paragraph" fontWeight="normal">
-          located in{' '}
-          <chakra.span
-            textDecoration="underline"
-            textDecorationStyle="wavy"
-            textDecorationColor="purple.500"
-            color={mode('black', 'white')}
-            _hover={{
-              textDecorationColor: mode('purple.700', 'purple.300'),
-            }}
-          >
-            Macedonia
-          </chakra.span>
-          . Active contributor to open source and a collaborator at{' '}
-          <chakra.span
-            textDecoration="underline"
-            textDecorationStyle="wavy"
-            color={mode('black', 'white')}
-            textDecorationColor="green.500"
-            _hover={{
-              textDecorationColor: mode('green.700', 'green.300'),
-            }}
-          >
-            Chakra UI
-          </chakra.span>
-          . With a passion for video creation and knowledge sharing.
+          During the day I'm a software engineer {" "}
+
+          <LinkPreview src="/assets/previews/codechem.png">
+            <chakra.a
+              href="https://codechem.com"
+              target="_blank"
+              textDecoration="underline"
+              textDecorationStyle="wavy"
+              textDecorationColor="green.500"
+              color={mode('black', 'white')}
+              _hover={{
+                textDecorationColor: mode('green.700', 'green.300'),
+              }}
+            >
+              @CodeChem
+            </chakra.a>
+          </LinkPreview>
+
+          .
+          {" "} At night I'm an instructor {" "}
+          <LinkPreview src="/assets/previews/egghead.png">
+            <chakra.a
+              href="https://egghead.io"
+              target="_blank"
+              textDecoration="underline"
+              textDecorationStyle="wavy"
+              textDecorationColor="purple.500"
+              color={mode('black', 'white')}
+              _hover={{
+                textDecorationColor: mode('purple.700', 'purple.300'),
+              }}
+            >
+              @Egghead
+            </chakra.a>
+          </LinkPreview>
+          {" "} and an collaborator {" "}
+          <LinkPreview src="/assets/previews/chakra-ui.png">
+            <chakra.a
+              href="https://chakra-ui.com"
+              target="_blank"
+              textDecoration="underline"
+              textDecorationStyle="wavy"
+              textDecorationColor="teal.500"
+              color={mode('black', 'white')}
+              _hover={{
+                textDecorationColor: mode('teal.700', 'teal.300'),
+              }}
+            >
+              @Chakra UI
+            </chakra.a>
+          </LinkPreview>
+          .
         </Text>
       </VStack>
       <Stack
@@ -64,9 +82,8 @@ const Hero = () => {
         spacing={4}
         direction={{
           base: 'column',
-          sm: 'row',
+          md: 'row',
         }}
-        pb={10}
       >
         {socialLinks.map((socialLink) => (
           <Button
