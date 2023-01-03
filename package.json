@@ -16,6 +16,7 @@
     "@chakra-ui/react": "latest",
     "@emotion/react": "latest",
     "@emotion/styled": "latest",
+    "cmdk": "^0.1.21",
     "dayjs": "^1.11.7",
     "framer-motion": "latest",
     "next": "latest",
@@ -27,11 +28,22 @@
     "@types/node": "17.0.23",
     "@types/react": "17.0.43",
     "@types/react-dom": "17.0.14",
-    "eslint": "8.12.0",
+    "eslint": "8.31.0",
     "eslint-config-next": "12.1.4",
+    "eslint-config-airbnb": "^19.0.4",
+    "eslint-config-airbnb-typescript": "^17.0.0",
+    "eslint-config-prettier": "^8.6.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-jsx-a11y": "^6.6.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-react-hooks": "^4.6.0",
+    "@typescript-eslint/eslint-plugin": "^5.48.0",
+    "@typescript-eslint/parser": "^5.48.0",
     "husky": "^8.0.1",
+    "prettier": "^2.2.1",
     "lint-staged": "^13.0.2",
     "next-images": "^1.8.4",
-    "typescript": "4.6.3"
+    "typescript": "4.9.4"
   }
 }

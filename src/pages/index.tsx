@@ -1,4 +1,4 @@
-import { Container, Heading, Text, VStack } from '@chakra-ui/react';
+import { Container, VStack } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
 
 const Hero = dynamic(() => import('~components/hero'), { ssr: false });
@@ -18,9 +18,8 @@ const Home = () => {
           </VStack>
         </VStack>
       </Container>
-    </VStack >
+    </VStack>
   );
 };
-
 
 export default Home;

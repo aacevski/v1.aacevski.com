@@ -1,5 +1,5 @@
 import {
-  Button, chakra, Heading, Icon, Image, Link, Stack, Text, useColorModeValue as mode, VStack
+  Button, chakra, Heading, Icon, Image, Link, Stack, Text, useColorModeValue as mode, VStack,
 } from '@chakra-ui/react';
 
 import LinkPreview from '~components/link-preview';
@@ -23,7 +23,9 @@ const Hero = () => {
           software engineer, open source advocate, content creator
         </Heading>
         <Text color="paragraph" fontWeight="normal">
-          During the day I'm a software engineer {" "}
+          During the day I&apos;m a software engineer
+          {' '}
+          {' '}
 
           <LinkPreview src="/assets/previews/codechem.png">
             <chakra.a
@@ -42,7 +44,11 @@ const Hero = () => {
           </LinkPreview>
 
           .
-          {" "} At night I'm an instructor {" "}
+          {' '}
+          {' '}
+          At night I&apos;m an instructor
+          {' '}
+          {' '}
           <LinkPreview src="/assets/previews/egghead.png">
             <chakra.a
               href="https://egghead.io"
@@ -58,7 +64,9 @@ const Hero = () => {
               @Egghead
             </chakra.a>
           </LinkPreview>
-          {" "} and an collaborator {" "}
+          {' '}
+          and an collaborator
+          {' '}
           <LinkPreview src="/assets/previews/chakra-ui.png">
             <chakra.a
               href="https://chakra-ui.com"
