@@ -25,6 +25,7 @@ const Header = () => {
       bg={mode('rgba(255, 255, 255, 0.2)', 'rgba(30, 30, 30, 0.8)')}
       p={4}
       backdropFilter="blur(10px)"
+      zIndex={999}
     >
       <Container
         alignItems="center"

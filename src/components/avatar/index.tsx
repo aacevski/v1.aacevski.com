@@ -24,7 +24,7 @@ const Avatar = () => {
             _after: {
               content: `'Listening to ${data.artist} -  ${data.title}'`,
               fontWeight: '400',
-              width: 'max-content',
+              width: { base: '150px', sm: 'max-content' },
               position: 'absolute',
               top: '100%',
               left: 0,
