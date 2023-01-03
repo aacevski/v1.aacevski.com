@@ -20,7 +20,11 @@ const getAccessToken = async () => {
     }),
   });
 
-  return response.json();
+  const data = await response.json();
+
+  console.log('data', data);
+
+  return data;
 };
 
 export const getNowPlaying = async () => {
