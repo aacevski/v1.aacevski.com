@@ -4,9 +4,11 @@ import {
   useColorMode,
   useColorModeValue as mode,
 } from '@chakra-ui/react';
+import dynamic from 'next/dynamic';
 
-import Age from '~components/age';
 import ColorModeSwitch from '~components/color-mode-switch';
+
+const Age = dynamic(() => import('~components/age'), { ssr: false });
 
 const Header = () => {
   const { toggleColorMode } = useColorMode();

@@ -1,7 +1,9 @@
 import {
-  Button, chakra, Heading, Icon, Image, Link, Stack, Text, useColorModeValue as mode, VStack,
+
+  Button, chakra, Heading, Icon, Link, Stack, Text, useColorModeValue as mode, VStack,
 } from '@chakra-ui/react';
 
+import Avatar from '~components/avatar';
 import LinkPreview from '~components/link-preview';
 import socialLinks from '~constants/social-icons';
 
@@ -9,15 +11,7 @@ const Hero = () => {
   return (
     <VStack spacing={8}>
       <VStack spacing={4}>
-        <Image
-          alignSelf="flex-start"
-          alt="An image of Andrej"
-          objectFit="cover"
-          rounded="full"
-          src="/assets/images/andrej.jpg"
-          h={24}
-          w={24}
-        />
+        <Avatar />
         <Heading alignSelf="start">Andrej Acevski</Heading>
         <Heading size="sm" alignSelf="start">
           software engineer, open source advocate, content creator
@@ -25,8 +19,6 @@ const Hero = () => {
         <Text color="paragraph" fontWeight="normal">
           During the day I&apos;m a software engineer
           {' '}
-          {' '}
-
           <LinkPreview src="/assets/previews/codechem.png">
             <chakra.a
               href="https://codechem.com"
@@ -45,9 +37,7 @@ const Hero = () => {
 
           .
           {' '}
-          {' '}
           At night I&apos;m an instructor
-          {' '}
           {' '}
           <LinkPreview src="/assets/previews/egghead.png">
             <chakra.a
