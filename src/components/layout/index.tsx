@@ -1,10 +1,10 @@
-import { PropsWithChildren } from 'react';
-import { Box, VStack, useColorModeValue as mode } from '@chakra-ui/react';
+import { Box, useColorModeValue as mode, VStack } from '@chakra-ui/react';
+import React from 'react';
 
 import Header from './header';
 
 type Props = {
-  children: PropsWithChildren<unknown>;
+  children: React.ReactNode;
 };
 
 const Layout = ({ children }: Props) => {
