@@ -19,7 +19,7 @@ const Avatar = () => {
         <AvatarBadge
           boxSize="1.4em"
           bg="green.500"
-          borderColor={mode('rgba(201, 201, 201, 0.7)', '#121212')}
+          borderColor={mode('#EDEDFA', '#121212')}
           _hover={{
             _after: {
               content: `'Listening to ${data.artist} -  ${data.title}'`,
