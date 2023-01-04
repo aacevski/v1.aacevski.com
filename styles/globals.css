@@ -3,5 +3,8 @@
 ::selection {
   color: black;
   background: pink;
+}
+
+body {
   -webkit-tap-highlight-color: pink;
 }
