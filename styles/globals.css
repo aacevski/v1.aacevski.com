@@ -5,6 +5,12 @@
   background: pink;
 }
 
-body {
-  -webkit-tap-highlight-color: pink;
+::-moz-selection {
+  color: black;
+  background: pink;
+}
+
+::-webkit-selection {
+  color: black;
+  background: pink;
 }
