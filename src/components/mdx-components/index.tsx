@@ -6,14 +6,17 @@ import {
   Box,
   BoxProps,
   chakra, ChakraComponent, HTMLChakraProps,
-  Kbd, Link, useColorModeValue,
+  Kbd, Link, useClipboard, useColorModeValue,
 } from '@chakra-ui/react';
 import NextImage, { ImageProps } from 'next/image';
 import Highlight, { defaultProps, Language } from 'prism-react-renderer';
-import darkTheme from 'prism-react-renderer/themes/vsDark';
-import lightTheme from 'prism-react-renderer/themes/vsLight';
+import darkTheme from 'prism-react-renderer/themes/nightOwl';
+import lightTheme from 'prism-react-renderer/themes/nightOwlLight';
 import { useId } from 'react';
 import slugify from 'slugify';
+import { MdContentCopy } from 'react-icons/md';
+import { IoMdCheckmark } from 'react-icons/io';
+import { MDXRemoteProps } from 'next-mdx-remote';
 
 const ChakraHighlight = chakra(Highlight, {
   shouldForwardProp: (prop) => ['Prism', 'theme', 'code', 'language', 'children'].includes(prop),
@@ -56,17 +59,18 @@ const CodeHighlight = ({ children: codeString, className: language }: {
 }) => {
   const theme = useColorModeValue(lightTheme, darkTheme);
   const codeId = useId();
+  const { hasCopied, onCopy } = useClipboard('');
 
   if (!language) {
     return (
       <chakra.code
         apply="mdx.code"
-        color="purple.500"
+        color="blue.500"
         _dark={{
-          color: 'purple.200',
-          bg: 'purple.900',
+          color: 'blue.200',
+          bg: 'blue.900',
         }}
-        bg="purple.50"
+        bg="blue.50"
         px={1}
         py={0.5}
         rounded={{ base: 'none', md: 'md' }}
@@ -89,17 +93,17 @@ const CodeHighlight = ({ children: codeString, className: language }: {
       {({ className, style, tokens, getLineProps, getTokenProps }) => {
         tokens.pop();
         return (
-          <div data-language={className}>
+          <chakra.div data-language={className} pos="relative" role="group">
             <chakra.pre
               className={className}
-              sx={{ ...style, backgroundColor: 'gray.50' }}
-              _dark={{
-                backgroundColor: 'gray.900',
-              }}
+              sx={{ ...style, backgroundColor: 'blackAlpha.50' }}
               overflowX="auto"
               rounded="md"
               p={4}
               mx={-4}
+              _dark={{
+                backgroundColor: 'whiteAlpha.50',
+              }}
             >
               {tokens.map((line, i) => {
                 const lineProps = getLineProps({ line, key: i });
@@ -128,6 +132,7 @@ const CodeHighlight = ({ children: codeString, className: language }: {
                     {line.map((token, key) => {
                       return (
                         <chakra.span
+                          fontFamily="JetBrains Mono"
                           {...getTokenProps({ token, key })}
                           key={`${codeId}.${i}.${key}`}
                         />
@@ -137,7 +142,45 @@ const CodeHighlight = ({ children: codeString, className: language }: {
                 );
               })}
             </chakra.pre>
-          </div>
+            <chakra.div
+              position="absolute"
+              top={4}
+              right={4}
+              opacity={0}
+              transition="opacity 0.2s"
+              _groupHover={{
+                opacity: 1,
+              }}
+            >
+              <chakra.button
+                aria-label="Copy code to clipboard"
+                onClick={() => {
+                  navigator.clipboard.writeText(codeString);
+                  onCopy();
+                }}
+                color="gray.500"
+                bg="white"
+                _hover={{
+                  color: 'gray.700',
+                }}
+                _dark={{
+                  color: 'gray.300',
+                  bg: 'blackAlpha.800',
+                  _hover: {
+                    color: 'white',
+                  },
+                }}
+                fontSize="xl"
+                p={2}
+                rounded="md"
+                boxShadow="sm"
+                outline="none"
+                transition="all 0.2s"
+              >
+                {hasCopied ? <IoMdCheckmark /> : <MdContentCopy />}
+              </chakra.button>
+            </chakra.div>
+          </chakra.div>
         );
       }}
     </ChakraHighlight>
@@ -163,14 +206,14 @@ const LinkedHeading = (props: HTMLChakraProps<'h2'>) => {
       </Box>
       <chakra.span
         aria-label="anchor"
-        color="purple.500"
+        color="blue.500"
         userSelect="none"
         fontWeight="normal"
         outline="none"
         _focus={{ opacity: 1, boxShadow: 'outline' }}
-        opacity={0}
-        _groupHover={{ opacity: 1 }}
+        opacity={1}
         ml="0.375rem"
+        {...props}
       >
         #
       </chakra.span>
@@ -185,15 +228,15 @@ const Image = (props: ImageProps) => {
 };
 
 const Anchor = (props: ChakraComponent<'a'>) => (
-  <chakra.a color="purple.500" _dark={{ color: 'purple.300' }} {...props} />
+  <chakra.a target="_blank" color="blue.500" _dark={{ color: 'blue.300' }} {...props} />
 );
 
 const MDXComponents = {
   code: CodeHighlight,
-  h1: (props: ChakraComponent<'h1'>) => <LinkedHeading as="h1" apply="mdx.h1" {...props} />,
-  h2: (props: ChakraComponent<'h2'>) => <LinkedHeading as="h2" apply="mdx.h2" {...props} />,
-  h3: (props: ChakraComponent<'h3'>) => <LinkedHeading as="h3" apply="mdx.h3" {...props} />,
-  h4: (props: ChakraComponent<'h4'>) => <LinkedHeading as="h4" apply="mdx.h4" {...props} />,
+  h1: (props: ChakraComponent<'h1'>) => <LinkedHeading fontSize="4xl" fontWeight="semibold" as="h1" apply="mdx.h1" {...props} />,
+  h2: (props: ChakraComponent<'h2'>) => <LinkedHeading as="h2" fontSize="3xl" fontWeight="semibold" apply="mdx.h2" {...props} />,
+  h3: (props: ChakraComponent<'h3'>) => <LinkedHeading as="h3" fontSize="2xl" fontWeight="semibold" apply="mdx.h3" {...props} />,
+  h4: (props: ChakraComponent<'h4'>) => <LinkedHeading as="h4" fontSize="xl" fontWeight="semibold" apply="mdx.h4" {...props} />,
   hr: (props: ChakraComponent<'hr'>) => <chakra.hr apply="mdx.hr" {...props} />,
   strong: (props: BoxProps) => <Box as="strong" fontWeight="semibold" {...props} />,
   pre: Pre,
@@ -224,6 +267,6 @@ const MDXComponents = {
       />
     </Box>
   ),
-};
+} as Pick<MDXRemoteProps, 'components'>;
 
 export default MDXComponents;

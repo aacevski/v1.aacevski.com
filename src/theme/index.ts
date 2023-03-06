@@ -17,8 +17,8 @@ const theme = extendTheme({
     },
   },
   fonts: {
-    heading: `JetBrains Mono, ${base.fonts.heading}`,
-    body: `JetBrains Mono, ${base.fonts.body}`,
+    heading: `Poppins, ${base.fonts.heading}`,
+    body: `Poppins, ${base.fonts.body}`,
   },
   components: {
     Button: {

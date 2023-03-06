@@ -1,0 +1,74 @@
+---
+title: Theming components with Chakra UI
+description: This is a quick tutorial on how to theme components with Chakra UI
+date: March 06, 2023
+---
+
+Have you ever wanted to theme a component with Chakra UI? Well, you're in luck! 
+In this tutorial, we'll be going over how to theme components with Chakra UI.
+<br/>
+
+### What is Chakra UI?
+Chakra UI is a component library that allows you to build accessible, reusable, and themeable components.
+<br/>
+
+### How to theme components with Chakra UI
+There are two types of components in Chakra UI.
+Single-part components are components that have a single part, such as a `Button`. 
+Multi-part components are components that have multiple parts, such as a `Input`.
+<br/>
+#### Single-part components
+
+```ts
+// src/theme/components/button.ts
+import { defineStyle, defineStyleConfig } from '@chakra-ui/react'
+
+const outline = defineStyle({
+  border: '2px dashed', // change the appearance of the border
+  borderRadius: 0, // remove the border radius
+  fontWeight: 'semibold', // change the font weight
+})
+
+export const buttonTheme = defineStyleConfig({
+  variants: { outline },
+})
+```
+
+#### Multi-part components
+
+```ts
+// src/theme/components/input.ts
+import { inputAnatomy } from '@chakra-ui/anatomy'
+import { createMultiStyleConfigHelpers } from '@chakra-ui/react'
+
+const { definePartsStyle, defineMultiStyleConfig } =
+  createMultiStyleConfigHelpers(inputAnatomy.keys)
+
+const baseStyle = definePartsStyle({
+  // define the part you're going to style
+  field: {
+    fontFamily: 'mono', // change the font family
+    color: 'teal.500', // change the input text color
+  },
+})
+
+export const inputTheme = defineMultiStyleConfig({ baseStyle })
+```
+
+```ts
+// src/theme/index.ts
+import { extendTheme } from '@chakra-ui/react'
+import { inputTheme } from './components/input'
+import { buttonTheme } from './components/button'
+
+export const theme = extendTheme({
+  components: { 
+    Input: inputTheme
+    Button: buttonTheme
+  },
+})
+```
+
+### Conclusion
+Are you feeling inspired and want to step into the open source world?
+If so, you can contribute to Chakra UI by adding theming documentation for [one of the components](https://github.com/chakra-ui/chakra-ui-docs/issues?q=is%3Aissue+is%3Aopen+label%3A%22created-by%3A+Chakra+UI+team%22).

@@ -19,13 +19,21 @@
     "cmdk": "^0.1.21",
     "dayjs": "^1.11.7",
     "framer-motion": "latest",
+    "gray-matter": "^4.0.3",
+    "image-size": "^1.0.2",
     "next": "latest",
+    "next-mdx-remote": "^4.4.1",
+    "plaiceholder": "^2.5.0",
     "prism-react-renderer": "^1.3.5",
     "react": "latest",
     "react-dom": "latest",
     "react-icons": "^4.4.0",
+    "reading-time": "^1.5.0",
+    "sharp": "^0.31.3",
     "slugify": "^1.6.5",
-    "swr": "^2.0.0"
+    "swr": "^2.0.0",
+    "unist": "^8.0.11",
+    "unist-util-visit": "^4.1.2"
   },
   "devDependencies": {
     "@types/node": "17.0.23",

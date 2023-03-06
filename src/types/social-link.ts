@@ -1,8 +1,8 @@
-import { IconType } from "react-icons";
+import { IconType } from 'react-icons';
 
 export type SocialLink = {
-    icon: IconType;
-    href: string;
-    color?: string;
-    name: string;
-}
+  icon: IconType;
+  href: string;
+  color?: string;
+  name: string;
+};

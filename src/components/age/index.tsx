@@ -22,6 +22,7 @@ const Age = () => {
       cursor="help"
       size="sm"
       pos="relative"
+      fontFamily="JetBrains Mono"
       _hover={{
         _after: {
           content: '"ps aux | grep age"',
