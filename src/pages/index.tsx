@@ -5,7 +5,7 @@ const Hero = dynamic(() => import('~components/hero'), { ssr: false });
 
 const Home = () => {
   return (
-    <VStack w="full" spacing={10} fontFamily="JetBrains Mono">
+    <VStack w="full" spacing={10}>
       <Container maxW="container.sm" centerContent>
         <VStack spacing={10}>
           <Hero />

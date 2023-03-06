@@ -9,14 +9,14 @@ import socialLinks from '~constants/social-icons';
 
 const Hero = () => {
   return (
-    <VStack spacing={8}>
+    <VStack spacing={8} fontFamily="JetBrains Mono">
       <VStack spacing={4}>
         <Avatar />
-        <Heading alignSelf="start">Andrej Acevski</Heading>
-        <Heading size="sm" alignSelf="start">
+        <Heading fontFamily="inherit" alignSelf="start">Andrej Acevski</Heading>
+        <Heading fontFamily="inherit" size="sm" alignSelf="start">
           software engineer, open source advocate, content creator
         </Heading>
-        <Text color="paragraph" fontWeight="normal">
+        <Text fontFamily="inherit" color="paragraph" fontWeight="normal">
           During the day I&apos;m a software engineer
           {' '}
           <LinkPreview src="/assets/previews/codechem.png">
