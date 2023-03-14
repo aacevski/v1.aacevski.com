@@ -5,3 +5,7 @@ export type BlogPost = {
   slug: string;
   readingTime: string;
 };
+
+export type Views = {
+  views: number;
+};
