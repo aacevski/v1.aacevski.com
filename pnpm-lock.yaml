@@ -2,6 +2,7 @@ lockfileVersion: 5.4
 
 specifiers:
   '@chakra-ui/react': latest
+  '@chakra-ui/theme-tools': ^2.0.16
   '@emotion/react': latest
   '@emotion/styled': latest
   '@prisma/client': ^4.11.0
@@ -46,6 +47,7 @@ specifiers:
 
 dependencies:
   '@chakra-ui/react': 2.5.2_thnuovmspcfmh4m6tvqxokweaa
+  '@chakra-ui/theme-tools': 2.0.16
   '@emotion/react': 11.10.6_pmekkgnqduwlme35zpnqhenc34
   '@emotion/styled': 11.10.6_oouaibmszuch5k64ms7uxp2aia
   '@prisma/client': 4.11.0_prisma@4.11.0
@@ -179,6 +181,10 @@ packages:
       '@chakra-ui/spinner': 2.0.13_vnxkkotftpvd7ci6s2qlbwplcq
       '@chakra-ui/system': 2.5.2_xqp3pgpqjlfxxa3zxu4zoc4fba
       react: 18.2.0
+    dev: false
+
+  /@chakra-ui/anatomy/2.1.1:
+    resolution: {integrity: sha512-LUHAoqJAgxAqmyckG5bUpBrfEo1FleEyY+1A8hkWciy58gZ+h3GoY9oBpHcdo7XdHPpy3G+3hieK/7i9NLwxAw==}
     dev: false
 
   /@chakra-ui/anatomy/2.1.2:
@@ -947,6 +953,10 @@ packages:
       react: 18.2.0
     dev: false
 
+  /@chakra-ui/shared-utils/2.0.4:
+    resolution: {integrity: sha512-JGWr+BBj3PXGZQ2gxbKSD1wYjESbYsZjkCeE2nevyVk4rN3amV1wQzCnBAhsuJktMaZD6KC/lteo9ou9QUDzpA==}
+    dev: false
+
   /@chakra-ui/shared-utils/2.0.5:
     resolution: {integrity: sha512-4/Wur0FqDov7Y0nCXl7HbHzCg4aq86h+SXdoUeuCMD3dSj7dpsVnStLYhng1vxvlbUnLpdF4oz5Myt3i/a7N3Q==}
     dev: false
@@ -1102,6 +1112,16 @@ packages:
       '@chakra-ui/shared-utils': 2.0.5
       '@chakra-ui/system': 2.5.2_xqp3pgpqjlfxxa3zxu4zoc4fba
       react: 18.2.0
+    dev: false
+
+  /@chakra-ui/theme-tools/2.0.16:
+    resolution: {integrity: sha512-B/LD+2LNDeHYd/LVCHIJqckVZfhrycTUpNbhRVAiDRaS0AAcsPxKas7liTFkkMkM076YjiHlcla3KpVX+E9tzg==}
+    peerDependencies:
+      '@chakra-ui/styled-system': '>=2.0.0'
+    dependencies:
+      '@chakra-ui/anatomy': 2.1.1
+      '@chakra-ui/shared-utils': 2.0.4
+      color2k: 2.0.2
     dev: false
 
   /@chakra-ui/theme-tools/2.0.17_vcmfpjfcbdn44u7asvmycvtbgi:

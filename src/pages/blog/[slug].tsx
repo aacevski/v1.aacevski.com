@@ -74,6 +74,7 @@ const BlogPostPage = ({
         )}
         )
       </Stack>
+      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
       <MDXRemote lazy {...source} components={MDXComponents as any} />
     </Container>
   );
