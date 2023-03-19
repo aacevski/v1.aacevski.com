@@ -10,7 +10,12 @@
     "prepare": "husky install"
   },
   "lint-staged": {
-    "*.{ts,tsx}": "eslint --fix"
+    "*.{ts,tsx}": "eslint"
+  },
+  "prettier": {
+    "arrowParens": "always",
+    "semi": false,
+    "trailingComma": "all"
   },
   "dependencies": {
     "@chakra-ui/react": "latest",
@@ -18,23 +23,24 @@
     "@emotion/react": "latest",
     "@emotion/styled": "latest",
     "@prisma/client": "^4.11.0",
-    "cmdk": "^0.1.21",
+    "contentlayer": "^0.3.0",
+    "date-fns": "^2.29.3",
     "dayjs": "^1.11.7",
     "framer-motion": "latest",
-    "gray-matter": "^4.0.3",
-    "image-size": "^1.0.2",
+    "github-slugger": "^2.0.0",
     "next": "latest",
-    "next-mdx-remote": "^4.4.1",
+    "next-contentlayer": "^0.3.0",
     "next-seo": "^5.15.0",
-    "plaiceholder": "^2.5.0",
-    "prism-react-renderer": "^1.3.5",
     "prisma": "^4.11.0",
     "react": "latest",
     "react-dom": "latest",
     "react-icons": "^4.4.0",
     "reading-time": "^1.5.0",
+    "rehype-autolink-headings": "^6.1.1",
+    "rehype-pretty-code": "^0.9.4",
+    "rehype-slug": "^5.1.0",
+    "remark-gfm": "^3.0.1",
     "sharp": "^0.31.3",
-    "slugify": "^1.6.5",
     "swr": "^2.0.0"
   },
   "devDependencies": {
@@ -43,16 +49,6 @@
     "@types/react-dom": "17.0.14",
     "@typescript-eslint/eslint-plugin": "^5.48.0",
     "@typescript-eslint/parser": "^5.48.0",
-    "eslint": "8.31.0",
-    "eslint-config-airbnb": "^19.0.4",
-    "eslint-config-airbnb-typescript": "^17.0.0",
-    "eslint-config-next": "12.1.4",
-    "eslint-config-prettier": "^8.6.0",
-    "eslint-plugin-import": "^2.26.0",
-    "eslint-plugin-jsx-a11y": "^6.6.1",
-    "eslint-plugin-prettier": "^4.2.1",
-    "eslint-plugin-react": "^7.31.11",
-    "eslint-plugin-react-hooks": "^4.6.0",
     "husky": "^8.0.1",
     "lint-staged": "^13.0.2",
     "next-images": "^1.8.4",

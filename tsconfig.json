@@ -43,13 +43,22 @@
       ],
       "~db": [
         "db"
+      ],
+      "contentlayer/generated": [
+        "./.contentlayer/generated"
       ]
-    }
+    },
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ],
   },
   "include": [
     "next-env.d.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    ".contentlayer/generated",
   ],
   "exclude": [
     "node_modules"

@@ -1,111 +1,48 @@
-import { Box, Container, Heading, HStack, Stack, Text } from '@chakra-ui/react';
-import matter from 'gray-matter';
-import { GetStaticPaths, GetStaticProps } from 'next';
-import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
-import { serialize } from 'next-mdx-remote/serialize';
-import readingTimeParser from 'reading-time';
-import { useRouter } from 'next/router';
-import { useEffect } from 'react';
+import { Container } from '@chakra-ui/react';
+import { allPosts } from 'contentlayer/generated';
+import { GetStaticProps, InferGetStaticPropsType } from 'next';
+import { useMDXComponent } from 'next-contentlayer/hooks';
 
-import MDXComponents from '~components/mdx-components';
-import { BlogPost } from '~types/blog-post';
-import { getBlogPosts } from '~utils/get-blog-posts';
-import { readBlogPost } from '~utils/read-blog-post';
-import useBlogPostViews from '~hooks/use-blog-post-views';
-
-type Props = BlogPost & {
-  source: MDXRemoteSerializeResult;
-};
+import { getPartialPost } from '~utils/contentlayer';
+import { components } from '~components/mdx-components';
 
 const BlogPostPage = ({
-  source,
-  title,
-  readingTime,
-  date,
-}: Props) => {
-  const { query } = useRouter();
-  const slug = query.slug as string;
-
-  const { views, increment: incrementViews, isLoading: isLoadingViews } = useBlogPostViews(slug);
-
-  useEffect(() => {
-    if (slug) {
-      incrementViews();
-    }
-  }, [slug, incrementViews]);
+  post,
+}: InferGetStaticPropsType<typeof getStaticProps>) => {
+  const MDXContent = useMDXComponent(post.body.code);
 
   return (
     <Container maxW="container.lg" mb={10}>
-      <Heading size="xl">
-        {title}
-      </Heading>
-      <Stack
-        direction={{ base: 'column', md: 'row' }}
-        fontFamily="JetBrains Mono"
-        mt={2}
-        mb={8}
-        divider={<HStack mx={2} />}
-        fontSize="sm"
-      >
-        <Text>
-          📅
-          {' '}
-          {date}
-        </Text>
-        <Text>
-          🕑
-          {' '}
-          {readingTime}
-        </Text>
-        {(isLoadingViews || !views) ? (
-          <Box display="inline">
-            👀
-            {' '}
-            Loading views...
-          </Box>
-        ) : (
-          <Text>
-            👀
-            {' '}
-            {views}
-            {' '}
-            views
-          </Text>
-        )}
-        )
-      </Stack>
-      {/* eslint-disable-next-line @typescript-eslint/no-explicit-any */}
-      <MDXRemote lazy {...source} components={MDXComponents as any} />
+      yo
+
+      <MDXContent
+        components={{ ...components }}
+      />
     </Container>
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  const posts = await getBlogPosts();
-
+export const getStaticPaths = () => {
   return {
-    paths: posts.map(({ slug }) => ({ params: { slug } })),
+    paths: allPosts.map((p) => ({ params: { slug: p.slug } })),
     fallback: false,
   };
 };
 
-export const getStaticProps: GetStaticProps<Props> = async (ctx) => {
-  const slug = ctx?.params?.slug as string;
+export const getStaticProps: GetStaticProps<{
+  post: ReturnType<typeof getPartialPost>;
+}> = async ({ params }) => {
+  const post = allPosts.find((post) => post.slug === params?.slug);
 
-  const postContent = await readBlogPost(slug);
-  const {
-    content,
-    data: { title, description, date },
-  } = matter(postContent);
+  if (!post) {
+    return {
+      notFound: true,
+    };
+  }
 
   return {
     props: {
-      source: await serialize(content),
-      readingTime: readingTimeParser(content).text,
-      title,
-      description,
-      date,
-      slug,
+      post: getPartialPost(post, allPosts),
     },
   };
 };

@@ -1,8 +1,10 @@
-/** @type {import('next').NextConfig} */
-const withImages = require('next-images');
+const { withContentlayer } = require("next-contentlayer")
 
-module.exports = withImages({
-  images: {
-    domains: ['www.unwrapit.me'],
-  },
-});
+/**
+ * @type {import('next').NextConfig}
+ */
+const nextConfig = {
+}
+
+
+module.exports = withContentlayer(nextConfig)
