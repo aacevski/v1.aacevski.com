@@ -26,7 +26,7 @@ function App({ Component, pageProps }: AppProps) {
           siteName: 'Andrej Acevski',
           images: [
             {
-              url: 'https://aacevski.com/assets/images/andrej.jpg',
+              url: 'https://aacevski.com/assets/images/social.jpg',
               width: 1200,
               height: 630,
               alt: 'Andrej Acevski',
