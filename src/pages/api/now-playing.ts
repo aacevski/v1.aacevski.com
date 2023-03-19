@@ -2,9 +2,9 @@ import { NextApiRequest, NextApiResponse } from 'next';
 
 import { getNowPlaying } from '~utils/spotify';
 
-export const config = {
-  runtime: 'experimental-edge',
-};
+// export const config = {
+//   runtime: 'experimental-edge',
+// };
 
 export default async function handler(_req: NextApiRequest, res: NextApiResponse) {
   const response = await getNowPlaying();
