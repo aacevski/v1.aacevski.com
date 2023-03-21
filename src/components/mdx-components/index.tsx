@@ -192,7 +192,14 @@ const LinkedHeading = (props: HTMLChakraProps<'h2'>) => {
   const slug = slugify(children as string, { lower: true });
 
   return (
-    <Link alignItems="flex-end" display="flex" href={`#${slug}`} role="group">
+    <Link
+      alignItems="flex-end"
+      display="flex"
+      href={`#${slug}`}
+      role="group"
+      id={slug}
+      scrollMarginTop={20}
+    >
       <Box
         {...props}
         display="inline"
