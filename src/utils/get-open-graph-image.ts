@@ -2,7 +2,7 @@ import encode from './encode';
 
 export const getOpenGraphImage =
   (title: string, readingTime: string, date: string): string => {
-    const parsedDate = new Date().toLocaleDateString('en-US', {
+    const parsedDate = new Date(date).toLocaleDateString('en-US', {
       month: 'short',
       day: 'numeric',
     });
