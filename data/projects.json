@@ -1,10 +1,14 @@
 {
     "projects": [
         {
-            "name": "unwrapit.me",
+            "title": "unwrapit.me",
             "description": "Have you ever wanted to see your most listened artists and tracks anytime of the year? with unwrapit.me you can!",
-            "url": "https://unwrapit.me",
-            "image": "https://www.unwrapit.me/assets/images/social.png"
+            "url": "https://unwrapit.me"
+        },
+        {
+            "title": "go-tify",
+            "description": "A simple CLI tool which let's you control your Spotify player from the terminal, built using Go. 💙",
+            "url": "https://github.com/aacevski/go-tify"
         }
     ]
 }
