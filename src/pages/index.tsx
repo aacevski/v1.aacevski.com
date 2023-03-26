@@ -1,4 +1,4 @@
-import { Container, HStack, Icon, Stack, Text, VStack } from '@chakra-ui/react';
+import { Container, HStack, Icon, Stack, Text, VStack, useColorModeValue as mode } from '@chakra-ui/react';
 import { GetStaticProps } from 'next';
 import dynamic from 'next/dynamic';
 import NextLink from 'next/link';
@@ -43,7 +43,7 @@ const Home = ({ blogs, projects }: Props) => {
                         textDecorationColor: randomUnderlineColor(),
                       },
                       '&:hover > *:last-child': {
-                        color: 'white',
+                        color: mode('black', 'white'),
                         transform: 'scale(1.2)',
                       },
                     }}
@@ -52,7 +52,7 @@ const Home = ({ blogs, projects }: Props) => {
                       as="a"
                       href={project.url}
                       target="_blank"
-                      color="white"
+                      color={mode('black', 'white')}
                       textDecor="underline"
                       textDecorationStyle="wavy"
                       textDecorationColor="paragraph"
@@ -91,7 +91,7 @@ const Home = ({ blogs, projects }: Props) => {
                     <Text
                       as={NextLink}
                       href={`/blog/${blog.slug}`}
-                      color="white"
+                      color={mode('black', 'white')}
                       textDecor="underline"
                       textDecorationStyle="wavy"
                       textDecorationColor="paragraph"
