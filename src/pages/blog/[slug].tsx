@@ -32,6 +32,7 @@ const BlogPostPage = ({
   const openGraphImage = getOpenGraphImage(title, readingTime, date);
 
   const { views, increment: incrementViews, isLoading: isLoadingViews } = useBlogPostViews(slug);
+  const url = `https://aacevski.com/blog/${slug}`;
 
   useEffect(() => {
     if (slug) {
@@ -44,6 +45,7 @@ const BlogPostPage = ({
       <NextSeo
         title={`${title} - Andrje Acevski`}
         description={description}
+        canonical={url}
         openGraph={{
           description,
           title: `${title} - Andrej Acevski`,
@@ -51,6 +53,9 @@ const BlogPostPage = ({
           images: [
             {
               url: openGraphImage,
+              height: 630,
+              width: 1200,
+              alt: title,
             },
           ],
         }}
