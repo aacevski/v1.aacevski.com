@@ -1,4 +1,4 @@
-import { Box, Container, Heading, HStack, Stack, Text } from '@chakra-ui/react';
+import { Box, Container, Heading, HStack, Stack, Text, Icon, LinkOverlay, LinkBox } from '@chakra-ui/react';
 import matter from 'gray-matter';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
@@ -7,6 +7,8 @@ import readingTimeParser from 'reading-time';
 import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 import { NextSeo } from 'next-seo';
+import NextLink from 'next/link';
+import { CgPushLeft } from 'react-icons/cg';
 
 import MDXComponents from '~components/mdx-components';
 import { BlogPost } from '~types/blog-post';
@@ -58,7 +60,21 @@ const BlogPostPage = ({
           ],
         }}
       />
+      {/* go back button */}
       <Container maxW="container.lg" mb={10}>
+        <LinkBox w="max-content">
+          <LinkOverlay display="flex" mb={6} alignItems="center" as={NextLink} href="/" gap={2}>
+            <Icon as={CgPushLeft} color="paragraph" fontSize="xl" />
+            <Text
+              fontSize="sm"
+              color="paragraph"
+              fontFamily="JetBrains Mono"
+            >
+              /home
+            </Text>
+          </LinkOverlay>
+        </LinkBox>
+        {/* </HStack> */}
         <Heading size="xl">
           {title}
         </Heading>
