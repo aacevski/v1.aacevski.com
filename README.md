@@ -22,9 +22,9 @@ That's it! If you have any questions or feedback, feel free to reach out to me.
 ### 🎉 Credits
 This project was inspired by and adapted from the following repositories:
 
-- [Lazar Nikolov's](nikolovlazar.com)
-- [Lee Robinson's](leerob.io)
-- [Delba de Oliveira's](delbaoliveira.com)
-- [Paco Coursey's](pacocoursey.com)
+- [Lazar Nikolov's](https://nikolovlazar.com)
+- [Lee Robinson's](https://leerob.io)
+- [Delba de Oliveira's](https://delba.deb)
+- [Paco Coursey's](https://paco.me)
 ___
 Thank you for checking out my portfolio website! 😊
