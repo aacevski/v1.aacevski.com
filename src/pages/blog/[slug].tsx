@@ -13,7 +13,6 @@ import { BlogPost } from '~types/blog-post';
 import { getBlogPosts } from '~utils/get-blog-posts';
 import { readBlogPost } from '~utils/read-blog-post';
 import useBlogPostViews from '~hooks/use-blog-post-views';
-import { getOpenGraphImage } from '~utils/get-open-graph-image';
 
 type Props = BlogPost & {
   source: MDXRemoteSerializeResult;
@@ -29,10 +28,9 @@ const BlogPostPage = ({
   const { query } = useRouter();
   const slug = query.slug as string;
 
-  const openGraphImage = getOpenGraphImage(title, readingTime, date);
-
   const { views, increment: incrementViews, isLoading: isLoadingViews } = useBlogPostViews(slug);
   const url = `https://aacevski.com/blog/${slug}`;
+  const ogImage = `https://aacevski.com/assets/blog/${slug}.png`;
 
   useEffect(() => {
     if (slug) {
@@ -52,7 +50,7 @@ const BlogPostPage = ({
           url: `https://aacevski.com/blog/${slug}`,
           images: [
             {
-              url: openGraphImage,
+              url: ogImage,
               height: 630,
               width: 1200,
               alt: title,
