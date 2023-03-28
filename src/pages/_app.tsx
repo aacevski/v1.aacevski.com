@@ -1,6 +1,7 @@
 import type { AppProps } from 'next/app';
 import { ChakraProvider } from '@chakra-ui/react';
 import { NextSeo } from 'next-seo';
+import { Analytics } from '@vercel/analytics/react';
 
 import Layout from '~components/layout';
 import theme from '~theme';
@@ -48,6 +49,7 @@ function App({ Component, pageProps }: AppProps) {
       />
       <Layout>
         <Component {...pageProps} />
+        <Analytics />
       </Layout>
     </ChakraProvider>
   );
