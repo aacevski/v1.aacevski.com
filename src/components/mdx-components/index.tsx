@@ -199,6 +199,7 @@ const LinkedHeading = (props: HTMLChakraProps<'h2'>) => {
       role="group"
       id={slug}
       scrollMarginTop={20}
+      my={4}
     >
       <Box
         {...props}
@@ -256,7 +257,7 @@ const MDXComponents = {
   a: Anchor,
   p: (props: ChakraComponent<'p'>) => <chakra.p apply="mdx.p" {...props} />,
   ul: (props: ChakraComponent<'ul'>) => (
-    <chakra.ul px={{ base: 4, md: 0 }} apply="mdx.ul" {...props} />
+    <chakra.ul px={{ base: 4, md: 0 }} py={4} apply="mdx.ul" {...props} />
   ),
   ol: (props: ChakraComponent<'ol'>) => <chakra.ol apply="mdx.ul" {...props} />,
   li: (props: ChakraComponent<'li'>) => <chakra.li pb="4px" {...props} />,
@@ -271,6 +272,7 @@ const MDXComponents = {
         {...props}
         w="unset"
         mx={-4}
+        my={4}
       />
     </Box>
   ),
