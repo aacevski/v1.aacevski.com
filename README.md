@@ -1,3 +1,5 @@
+# ⚠️ This repository has been archived and has been moved at https://github.com/aacevski/aacevski.com
+
 # 👋 Welcome to [aacevski.com](https://aacevski.com)!
 
 This is my portfolio website built using Next.js, Chakra UI, Prism, and MDX for the content. The site is deployed on Vercel.
